@@ -5,7 +5,7 @@
  * Time: 上午1:01
  */
 
-namespace anxu\Yii2Simditor;
+namespace anxu;
 
 use yii\web\AssetBundle;
 

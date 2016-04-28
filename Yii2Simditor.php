@@ -6,7 +6,7 @@
  * Time: 下午10:27
  */
 
-namespace anxu\Yii2Simditor;
+namespace anxu;
 
 use Yii;
 use yii\web\View;

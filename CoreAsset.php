@@ -5,7 +5,7 @@
  * Time: 下午10:44
  */
 
-namespace  anxu\Yii2Simditor;
+namespace  anxu;
 
 use yii\web\AssetBundle;
 
@@ -44,8 +44,8 @@ class CoreAsset extends AssetBundle
      */
     public $depends = [
         'yii\web\YiiAsset',
-        'anxu\Yii2Simditor\ModuleAsset',
-        'anxu\Yii2Simditor\HotkeysAsset'
+        'anxu\ModuleAsset',
+        'anxu\HotkeysAsset'
     ];
     
     /**
@@ -55,7 +55,7 @@ class CoreAsset extends AssetBundle
     {
 
         if($this->uploader){
-            $this->depends[] = 'anxu\Yii2Simditor\UploaderAsset';
+            $this->depends[] = 'anxu\UploaderAsset';
         }
 
         parent::registerAssetFiles($view);

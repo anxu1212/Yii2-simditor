@@ -15,7 +15,7 @@
   },
   "autoload": {
     "psr-4": {
-      "anxu\\Yii2Simditor\\": ""
+      "anxu\\": ""
     }
   }
 }
