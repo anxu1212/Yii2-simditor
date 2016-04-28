@@ -1,0 +1,22 @@
+{
+  "name": "anxu/yii2-simditor",
+  "description": "editor for yii2 framework",
+  "type": "yii2-extension",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "anxu",
+      "email": "anxu1212@hotmail.com"
+    }
+  ],
+  "minimum-stability": "stable",
+  "require": {
+    "php": ">=5.4.0",
+    "yiisoft/yii2": "~2.0.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "anxu\\Yii2Simditor\\": ""
+    }
+  }
+}
