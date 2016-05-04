@@ -14,17 +14,34 @@ use yii\helpers\Html;
 use yii\helpers\Json;
 use yii\web\JsExpression;
 use yii\base\Widget;
+use yii\base\Model;
+use yii\base\InvalidConfigException;
 
 
 class Yii2Simditor extends Widget
 {
 
+    /**
+     * @var Model the data model that this widget is associated with.
+     */
+    public $model;
+    /**
+     * @var string the model attribute that this widget is associated with.
+     */
+    public $attribute;
+    /**
+     * @var string the input name. This must be set if [[model]] and [[attribute]] are not set.
+     */
+    public $name;
+    /**
+     * @var array the HTML attributes for the input tag.
+     * @see \yii\helpers\Html::renderTagAttributes() for details on how attributes are being rendered.
+     */
     public $options = [];
 
 
-    /**
-     * @var array clientOptions the HTML attributes for the widget container tag.
-     */
+
+
     public $clientOptions = [
 
     ];
@@ -72,11 +89,23 @@ class Yii2Simditor extends Widget
      */
     public function init()
     {
+
+        if ($this->name === null && !$this->hasModel()) {
+            throw new InvalidConfigException("Either 'name', or 'model' and 'attribute' properties must be specified.");
+        }
         //checks for the element id
         if (!isset($this->options['id'])) {
-            $this->options['id'] = $this->getId();
+            $this->options['id'] = $this->hasModel() ? Html::getInputId($this->model, $this->attribute) : $this->getId();
         }
         parent::init();
+    }
+
+    /**
+     * @return boolean whether this widget is associated with a data model.
+     */
+    protected function hasModel()
+    {
+        return $this->model instanceof Model && $this->attribute !== null;
     }
 
     /**
@@ -85,7 +114,11 @@ class Yii2Simditor extends Widget
     public function run()
     {
         echo Html::beginTag('div') . "\n";
-        echo Html::textarea($this->_pluginName, '', ['autofocus' => true, 'id' => $this->options['id']]);
+        if ($this->hasModel()) {
+            echo Html::activeTextarea($this->model, $this->attribute, $this->options);
+        } else {
+            echo Html::textarea($this->name, '',$this->options);
+        }
         echo Html::endTag('div') . "\n";
 
         $this->registerPlugin();
@@ -93,7 +126,7 @@ class Yii2Simditor extends Widget
 
 
     /**
-     * Registers the FullCalendar javascript assets and builds the requiered js  for the widget and the related events
+     * Registers the javascript assets and builds the requiered js  for the widget and the related events
      */
     protected function registerPlugin()
     {
