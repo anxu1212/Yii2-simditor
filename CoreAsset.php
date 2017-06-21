@@ -17,16 +17,17 @@ class CoreAsset extends AssetBundle
      * [$sourcePath description]
      * @var string
      */
-    public $sourcePath = '@vendor/bower/assets';
+    public $sourcePath = '@vendor/bower/simditor';
 
     public $uploader = false;
+
 
     /**
      * [$css description]
      * @var array
      */
     public $css = [
-        'styles/simditor.css',
+        "styles/simditor.css"
     ];
 
     /**
@@ -34,8 +35,7 @@ class CoreAsset extends AssetBundle
      * @var array
      */
     public $js = [
-        'scripts/simditor.js',
-
+        "lib/simditor.js"
     ];
 
     /**
@@ -43,7 +43,6 @@ class CoreAsset extends AssetBundle
      * @var array
      */
     public $depends = [
-        'yii\web\YiiAsset',
         'anxu\ModuleAsset',
         'anxu\HotkeysAsset'
     ];
