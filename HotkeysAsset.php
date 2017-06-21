@@ -15,7 +15,7 @@ class HotkeysAsset extends AssetBundle
      * [$sourcePath description]
      * @var string
      */
-    public $sourcePath = __DIR__.'/assets';
+    public $sourcePath = '@vendor/bower/simple-hotkeys';
 
 
     /**
@@ -23,7 +23,7 @@ class HotkeysAsset extends AssetBundle
      * @var array
      */
     public $js = [
-        'scripts/hotkeys.min.js',
+        'lib/hotkeys.js',
     ];
 
 }

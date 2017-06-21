@@ -15,7 +15,7 @@ class ModuleAsset extends AssetBundle
      * [$sourcePath description]
      * @var string
      */
-    public $sourcePath = __DIR__.'/assets';
+    public $sourcePath = '@vendor/bower/simple-module';
 
 
     /**
@@ -23,7 +23,7 @@ class ModuleAsset extends AssetBundle
      * @var array
      */
     public $js = [
-        'scripts/module.min.js',
+        'lib/module.js',
 
     ];
 
