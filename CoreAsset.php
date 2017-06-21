@@ -17,7 +17,7 @@ class CoreAsset extends AssetBundle
      * [$sourcePath description]
      * @var string
      */
-    public $sourcePath = __DIR__.'/assets';
+    public $sourcePath = '@vendor/bower/assets';
 
     public $uploader = false;
 
